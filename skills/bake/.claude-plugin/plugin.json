@@ -1,0 +1,17 @@
+{
+  "name": "bake-pipeline",
+  "description": "Closed-loop feature builder: plan, implement, blind-review, validate",
+  "version": "1.0.0",
+  "author": {
+    "name": "autoencoders"
+  },
+  "commands": "./commands/",
+  "skills": [
+    "./skills/bake",
+    "./skills/feature-evaluator",
+    "./skills/feature-implementation",
+    "./skills/feature-planning",
+    "./skills/completion-validation",
+    "./skills/implementation-verification"
+  ]
+}
