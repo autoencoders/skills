@@ -1,0 +1,12 @@
+{
+  "name": "hello",
+  "description": "A simple test skill that says hi.",
+  "version": "1.0.0",
+  "author": {
+    "name": "autoencoders"
+  },
+  "commands": "./commands/",
+  "skills": [
+    "./skills/hello"
+  ]
+}
