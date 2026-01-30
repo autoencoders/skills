@@ -1,27 +1,30 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "autoencoders",
-  "description": "Community skills for Claude Code",
+  "description": "Skills for Claude Code",
   "owner": {
     "name": "autoencoders"
   },
   "plugins": [
     {
       "name": "bake-pipeline",
-      "source": "./skills/bake",
       "description": "Closed-loop feature builder: plan, implement, blind-review, validate",
+      "source": "./skills/bake",
       "version": "1.0.0",
       "author": {
         "name": "autoencoders"
       },
-      "keywords": [
-        "feature-pipeline",
-        "implementation",
-        "planning",
-        "verification",
-        "validation"
-      ],
-      "category": "productivity"
+      "category": "development"
+    },
+    {
+      "name": "hello",
+      "description": "A simple test skill that says hi.",
+      "source": "./skills/hello",
+      "version": "1.0.0",
+      "author": {
+        "name": "autoencoders"
+      },
+      "category": "development"
     }
   ]
 }
