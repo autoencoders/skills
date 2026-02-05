@@ -1,32 +1,32 @@
-# Bake
+# Implement
 
 **Go from half-baked idea to working, validated code.**
 
-Bake is a closed-loop feature development pipeline that prevents you from building the wrong thing. It evaluates, plans, implements, and validates your feature through an independent blind review—catching misalignment before you ship.
+Implement is a closed-loop feature development pipeline that prevents you from building the wrong thing. It evaluates, plans, implements, and validates your feature through an independent blind review—catching misalignment before you ship.
 
-## Why Use Bake
+## Why Use Implement
 
-Traditional AI coding assistants implement what you ask for. But what if you asked for the wrong thing? Bake solves this by:
+Traditional AI coding assistants implement what you ask for. But what if you asked for the wrong thing? Implement solves this by:
 
 1. **Evaluating first** — Is this worth building? What's the actual problem?
 2. **Defining acceptance criteria** — What does "done" actually look like?
 3. **Blind verification** — An independent check infers what was built from the code alone
 4. **Validation** — Does what was built match what was intended?
 
-If there's a mismatch, Bake iterates automatically (up to 2 times) before escalating.
+If there's a mismatch, Implement iterates automatically (up to 2 times) before escalating.
 
 ## Quick Start
 
 ```bash
 # Build a feature end-to-end
-/bake add user authentication with OAuth2
+/implement add user authentication with OAuth2
 
 # Explore first, execute later
-/bake --mode explore add real-time collaboration
-/bake --resume <bundle-id>
+/implement --mode explore add real-time collaboration
+/implement --resume <bundle-id>
 
 # Quick feature with tight timebox
-/bake --timebox 5 add logout button to header
+/implement --timebox 5 add logout button to header
 ```
 
 ## The Pipeline
@@ -59,9 +59,9 @@ evaluate → define → plan → implement → blind-verify → validate → rel
 
 | Command | Equivalent |
 |---------|------------|
-| `/bake idea` | `/bake --mode execute --timebox 10 idea` |
-| `/bake! idea` | `/bake --timebox 5 idea` |
-| `/bake? idea` | `/bake --mode explore idea` |
+| `/implement idea` | `/implement --mode execute --timebox 10 idea` |
+| `/implement! idea` | `/implement --timebox 5 idea` |
+| `/implement? idea` | `/implement --mode explore idea` |
 
 ## What You Get
 
@@ -74,7 +74,7 @@ evaluate → define → plan → implement → blind-verify → validate → rel
 - Clear explanation of what's not converging
 - Options: re-clarify, re-scope, or abandon
 
-## When to Use Bake
+## When to Use Implement
 
 - Features where "done" is ambiguous
 - Changes you want independently verified
