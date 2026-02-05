@@ -1,16 +1,16 @@
 ---
-name: bake
+name: implement
 user-invocable: true
-description: Entry point orchestrator for the feature development pipeline. Runs evaluate, define, plan, implement, verify, and validate as a closed loop. Invoke with "/bake [options] idea" to go from half-baked idea to working, validated code. Supports execute mode (full pipeline) and explore mode (preparation with resume). Triggers on "/bake", "bake this", or any message starting with "/bake".
+description: Closed-loop feature builder: plan, implement, blind-review, validate
 ---
 
-# /bake — Feature Development Pipeline
+# /implement — Feature Development Pipeline
 
 Single entry point to go from half-baked idea to working, validated code.
 
-## What /bake Is
+## What /implement Is
 
-`/bake` is the **state machine controller** for the full pipeline:
+`/implement` is the **state machine controller** for the full pipeline:
 
 ```
 evaluate → define → plan → implement → blind-verify → validate → (iterate) → release
@@ -23,7 +23,7 @@ Not a document generator. An execution orchestrator.
 ## Usage
 
 ```
-/bake [options] <your idea>
+/implement [options] <your idea>
 ```
 
 ## Options (Minimal Set)
@@ -41,22 +41,22 @@ Not a document generator. An execution orchestrator.
 
 ```bash
 # Default: full execution pipeline
-/bake add user authentication with OAuth2
+/implement add user authentication with OAuth2
 
 # Quick exploration (stops at plan, resumable)
-/bake --mode explore add real-time collaboration
+/implement --mode explore add real-time collaboration
 
 # Continue from exploration
-/bake --resume <previous-bundle>
+/implement --resume <previous-bundle>
 
 # Tight timebox for small feature
-/bake --timebox 5 add logout button to header
+/implement --timebox 5 add logout button to header
 
 # Provide acceptance criteria upfront
-/bake --accept "[CRITICAL] Returns 401 for invalid tokens; Tokens expire after 1 hour" add JWT auth
+/implement --accept "[CRITICAL] Returns 401 for invalid tokens; Tokens expire after 1 hour" add JWT auth
 
 # High-risk override (triggers red-team pass)
-/bake --risk high migrate to new database schema
+/implement --risk high migrate to new database schema
 ```
 
 ## Execution Modes
@@ -66,8 +66,8 @@ Not a document generator. An execution orchestrator.
 Runs full pipeline end-to-end:
 
 ```
-evaluate → quick-check → define → plan → quick-check → implement 
-    → early-check → blind-verify → completion-validate 
+evaluate → quick-check → define → plan → quick-check → implement
+    → early-check → blind-verify → completion-validate
     → (iterate ≤2) → release-plan → post-check
 ```
 
@@ -84,7 +84,7 @@ Produces resumable preparation artifacts:
 evaluate → quick-check → define → plan → quick-check → STOP
 ```
 
-Output: Stable "bake plan bundle" containing:
+Output: Stable "implement plan bundle" containing:
 - Evaluation summary
 - Acceptance criteria (with [CRITICAL] tags)
 - Implementation plan
@@ -92,7 +92,7 @@ Output: Stable "bake plan bundle" containing:
 
 Ends with continuation command:
 ```
-To execute: /bake --resume <bundle-id>
+To execute: /implement --resume <bundle-id>
 ```
 
 **Key rule**: Explore output is complete enough that execute mode does not regenerate it.
@@ -285,7 +285,7 @@ Post-check (after deploy)
 □ User feedback (if applicable)
 ```
 
-## /bake State Machine
+## /implement State Machine
 
 Internal state maintained throughout:
 
@@ -329,7 +329,7 @@ Strict order:
 
 ## Handling `--accept` (User-Provided Criteria)
 
-User criteria are **input, not override**. /bake sanity-checks:
+User criteria are **input, not override**. /implement sanity-checks:
 
 | Check | Action if fails |
 |-------|-----------------|
@@ -388,7 +388,7 @@ Timebox is a **hard constraint**. Forces prioritization over completeness.
 
 ### Execute Mode (Success)
 ```
-BAKE COMPLETE ✓
+IMPLEMENT COMPLETE ✓
 ═══════════════
 
 Feature: [Name]
@@ -414,7 +414,7 @@ Release plan:
 
 ### Explore Mode
 ```
-BAKE EXPLORED
+IMPLEMENT EXPLORED
 ═════════════
 
 Feature: [Name]
@@ -426,12 +426,12 @@ Artifacts:
 • Plan: ✓ ([N] components)
 
 To execute:
-/bake --resume explore-[id]
+/implement --resume explore-[id]
 ```
 
 ### Escalation
 ```
-BAKE ESCALATED
+IMPLEMENT ESCALATED
 ══════════════
 
 Feature: [Name]
@@ -447,7 +447,7 @@ Options:
 Awaiting decision.
 ```
 
-## What /bake Does NOT Do
+## What /implement Does NOT Do
 
 - ❌ Implement code directly (delegates to `feature-implementation`)
 - ❌ Run tests (delegates to implementation verification)
@@ -459,10 +459,10 @@ Awaiting decision.
 
 | Command | Equivalent |
 |---------|------------|
-| `/bake idea` | `/bake --mode execute --timebox 10 idea` |
-| `/bake! idea` | `/bake --timebox 5 idea` |
-| `/bake? idea` | `/bake --mode explore idea` |
-| `/spike idea` | `/bake --timebox 5 --waive-blind idea` |
+| `/implement idea` | `/implement --mode execute --timebox 10 idea` |
+| `/implement! idea` | `/implement --timebox 5 idea` |
+| `/implement? idea` | `/implement --mode explore idea` |
+| `/spike idea` | `/implement --timebox 5 --waive-blind idea` |
 
 ## Integration with Skills
 
@@ -473,4 +473,4 @@ This skill orchestrates:
 - `implementation-verification` — Blind inference (Stage 8)
 - `completion-validation` — Final reconciliation (Stage 9)
 
-Each skill receives context from /bake's state and returns output that updates the state.
+Each skill receives context from /implement's state and returns output that updates the state.

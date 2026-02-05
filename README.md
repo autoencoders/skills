@@ -5,7 +5,7 @@ A six-skill system for evaluated, planned, verified, and validated feature devel
 ## Quick Start
 
 ```bash
-/bake add user authentication
+/implement add user authentication
 ```
 
 That's it. The pipeline handles evaluation, definition, planning, implementation, verification, and validation.
@@ -13,7 +13,7 @@ That's it. The pipeline handles evaluation, definition, planning, implementation
 ## Usage
 
 ```bash
-/bake [options] <your idea>
+/implement [options] <your idea>
 ```
 
 ### Options
@@ -31,28 +31,28 @@ That's it. The pipeline handles evaluation, definition, planning, implementation
 
 ```bash
 # Full pipeline (default)
-/bake add OAuth2 authentication
+/implement add OAuth2 authentication
 
 # Explore first, execute later
-/bake --mode explore add real-time sync
-/bake --resume explore-abc123
+/implement --mode explore add real-time sync
+/implement --resume explore-abc123
 
 # Tight timebox for small feature
-/bake --timebox 5 add logout button
+/implement --timebox 5 add logout button
 
 # Provide acceptance criteria upfront
-/bake --accept "[CRITICAL] Returns 401 on bad token" add JWT auth
+/implement --accept "[CRITICAL] Returns 401 on bad token" add JWT auth
 
 # Shorthand versions
-/bake! add logout button    # timebox 5
-/bake? could we use GraphQL # explore mode
+/implement! add logout button    # timebox 5
+/implement? could we use GraphQL # explore mode
 /spike try websockets       # timebox 5, waive blind
 ```
 
 ## The Pipeline
 
 ```
-/bake <idea>
+/implement <idea>
      │
      ▼
 evaluate → define → plan → implement → blind-verify → validate
@@ -68,8 +68,8 @@ release-plan → post-check → DONE
 
 | Mode | Command | What happens |
 |------|---------|--------------|
-| **Execute** | `/bake idea` | Full pipeline → working code |
-| **Explore** | `/bake? idea` | Stops at plan → resumable bundle |
+| **Execute** | `/implement idea` | Full pipeline → working code |
+| **Explore** | `/implement? idea` | Stops at plan → resumable bundle |
 
 ### Timebox Controls Depth
 
@@ -83,7 +83,7 @@ release-plan → post-check → DONE
 
 | Skill | Purpose | Key Output |
 |-------|---------|------------|
-| **bake** | Orchestrate full pipeline | Working code + validation |
+| **implement** | Orchestrate full pipeline | Working code + validation |
 | **feature-evaluator** | Assess value and risk | Problem/upside/don't-build |
 | **feature-planning** | Break into components | Plan + acceptance criteria |
 | **feature-implementation** | Build with retry loop | Changed files |
@@ -120,7 +120,7 @@ When iterating: ONE smallest fix, ONE updated criterion. Max 2 iterations before
    Yes → Force PARTIAL, Iterate (critical fix)
    No  → Continue
 
-2. Confidence check  
+2. Confidence check
    Low + observable intent     → Iterate (improve legibility)
    Low + non-observable intent → Accept with caveat
    Medium/High                 → Continue
@@ -172,19 +172,19 @@ Throwaway experiment?
   No  ↓
 
 Want to align before building?
-  Yes → /bake? idea (explore mode)
+  Yes → /implement? idea (explore mode)
   No  ↓
 
 Small, clear feature?
-  Yes → /bake! idea (timebox 5)
+  Yes → /implement! idea (timebox 5)
   No  ↓
 
 Standard feature?
-  Yes → /bake idea (default)
+  Yes → /implement idea (default)
   No  ↓
 
 Complex or high-risk?
-  Yes → /bake --timebox 20 --risk high idea
+  Yes → /implement --timebox 20 --risk high idea
 ```
 
 ## When to Escalate
@@ -210,7 +210,7 @@ Complex or high-risk?
 README.md                        # This file
 DESIGN_DECISIONS.md              # Full design rationale
 feature-pipeline-overview.md     # Detailed pipeline documentation
-bake.skill                       # Entry point orchestrator (/bake command)
+implement.skill                  # Entry point orchestrator (/implement command)
 feature-evaluator.skill          # Should we build this?
 feature-planning.skill           # How do we build it?
 feature-implementation.skill     # Build with verification
@@ -224,9 +224,9 @@ Each `.skill` file is a zip archive. Extract and place in your skills directory,
 
 ## Known Limitations
 
-**Plugin skills are not discoverable via autocomplete.** Skills with `user-invocable: true` in their `SKILL.md` frontmatter can be invoked by typing the full namespaced command (e.g., `/bake-pipeline:bake`), but they don't appear in the slash command autocomplete menu. This makes plugin-distributed skills effectively invisible to users who don't already know the command exists.
+**Plugin skills are not discoverable via autocomplete.** Skills with `user-invocable: true` in their `SKILL.md` frontmatter can be invoked by typing the full namespaced command (e.g., `/implement-pipeline:implement`), but they don't appear in the slash command autocomplete menu. This makes plugin-distributed skills effectively invisible to users who don't already know the command exists.
 
-As a workaround, a top-level `/bake` command has been added so the entry point shows up in autocomplete. This should be revisited once the platform supports autocomplete for plugin-namespaced commands.
+As a workaround, a top-level `/implement` command has been added so the entry point shows up in autocomplete. This should be revisited once the platform supports autocomplete for plugin-namespaced commands.
 
 Tracked in: [#18949](https://github.com/anthropics/claude-code/issues/18949) (plugin skill autocomplete), [#17271](https://github.com/anthropics/claude-code/issues/17271) (project vs plugin display discrepancy), [#10246](https://github.com/anthropics/claude-code/issues/10246) (CLI autocomplete parity).
 

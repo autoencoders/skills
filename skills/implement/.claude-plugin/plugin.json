@@ -1,5 +1,5 @@
 {
-  "name": "bake-pipeline",
+  "name": "implement-pipeline",
   "description": "Closed-loop feature builder: plan, implement, blind-review, validate",
   "version": "1.0.0",
   "author": {
@@ -7,7 +7,7 @@
   },
   "commands": "./commands/",
   "skills": [
-    "./skills/bake",
+    "./skills/implement",
     "./skills/feature-evaluator",
     "./skills/feature-implementation",
     "./skills/feature-planning",
