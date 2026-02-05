@@ -25,6 +25,16 @@
         "name": "autoencoders"
       },
       "category": "development"
+    },
+    {
+      "name": "scaffold",
+      "description": "Python project scaffolding with uv workspaces: init, sync CLAUDE.md, docs, design review",
+      "source": "./skills/scaffold",
+      "version": "1.0.0",
+      "author": {
+        "name": "autoencoders"
+      },
+      "category": "development"
     }
   ]
 }

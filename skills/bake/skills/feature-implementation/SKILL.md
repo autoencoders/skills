@@ -218,6 +218,26 @@ Escalation check:
 - If confidence is Low and attempts remaining ≤ 1, consider escalating early
 - External blockers (missing API, permission issues) escalate immediately
 
+#### Using Teemux for Service Debugging
+
+When verifying against running services, use Teemux MCP tools for autonomous debugging. See `references/teemux-debugging.md` for the full workflow.
+
+**Key tools:**
+- `get_logs` — read service logs directly
+- `search_logs("ERROR")` — find errors and stack traces
+- `clear_logs` — clear buffer before retry to isolate new output
+- `get_process_names` — identify which services are running
+
+**Debugging loop:**
+1. Run verification command
+2. On failure, use `search_logs` to find errors in service logs
+3. Cross-reference with code to identify root cause
+4. Make fix, restart service if needed
+5. `clear_logs` to isolate retry
+6. Re-run verification
+
+This eliminates human round-trips — Claude observes logs directly instead of asking the user to check.
+
 ### ESCALATE Phase
 
 When stuck triggers are hit:

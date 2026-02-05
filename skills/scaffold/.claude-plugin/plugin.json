@@ -1,0 +1,12 @@
+{
+  "name": "scaffold",
+  "description": "Python project scaffolding with uv workspaces: init, sync CLAUDE.md, docs, design review",
+  "version": "1.0.0",
+  "author": {
+    "name": "autoencoders"
+  },
+  "commands": "./commands/",
+  "skills": [
+    "./skills/scaffold"
+  ]
+}
