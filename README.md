@@ -224,9 +224,7 @@ Each `.skill` file is a zip archive. Extract and place in your skills directory,
 
 ## Known Limitations
 
-**Plugin skills are not discoverable via autocomplete.** Skills with `user-invocable: true` in their `SKILL.md` frontmatter can be invoked by typing the full namespaced command (e.g., `/implement-pipeline:implement`), but they don't appear in the slash command autocomplete menu. This makes plugin-distributed skills effectively invisible to users who don't already know the command exists.
-
-As a workaround, a top-level `/implement` command has been added so the entry point shows up in autocomplete. This should be revisited once the platform supports autocomplete for plugin-namespaced commands.
+**Plugin skill autocomplete.** When a plugin's name matches the command name (e.g., plugin `implement` with command `implement`), the slash command `/implement` appears in autocomplete. If the names diverge (e.g., plugin `implement-pipeline` with command `implement`), the command is only reachable via the fully-namespaced form `/implement-pipeline:implement` and won't appear in autocomplete.
 
 Tracked in: [#18949](https://github.com/anthropics/claude-code/issues/18949) (plugin skill autocomplete), [#17271](https://github.com/anthropics/claude-code/issues/17271) (project vs plugin display discrepancy), [#10246](https://github.com/anthropics/claude-code/issues/10246) (CLI autocomplete parity).
 

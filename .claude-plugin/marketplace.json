@@ -7,7 +7,7 @@
   },
   "plugins": [
     {
-      "name": "implement-pipeline",
+      "name": "implement",
       "description": "Closed-loop feature builder: plan, implement, blind-review, validate",
       "source": "./skills/implement",
       "version": "1.0.0",
