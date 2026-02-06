@@ -1,5 +1,6 @@
 ---
 name: feature-evaluator
+user-invocable: false
 description: Structured evaluation of proposed features for existing projects. Use when developers want to assess whether a new feature should be built, understand tradeoffs, find alternatives, identify complementary features, or determine minimum viable implementations. Triggers on phrases like "evaluate this feature", "should we build", "feature proposal", "is this feature worth it", "feature assessment", "feature tradeoffs", or when asked to analyze the value and implementation options of a proposed addition to a codebase.
 ---
 

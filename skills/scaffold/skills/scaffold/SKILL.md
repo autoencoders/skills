@@ -1,5 +1,6 @@
 ---
 name: scaffold
+user-invocable: false
 description: Unified skill for Python project scaffolding with uv workspaces. Invoke with "/scaffold" plus a flag. Use "/scaffold --init" to scaffold a new Python project with uv workspaces. Use "/scaffold --sync" to scan the codebase and generate/update CLAUDE.md so Claude Code never needs a project explanation. Use "/scaffold --docs" to add documentation structure (DECISIONS.md, CHANGELOG.md, BUGS.md, specs/) to an existing project. Use "/scaffold --review" to load the technical design review methodology for critiquing a spec or architecture doc. Also triggers on phrases like "init uv project", "sync context", "update CLAUDE.md", "review this spec", or any Python development workflow involving uv workspaces, structlog, pytest, ruff, docker-compose, or multi-package repositories.
 ---
 

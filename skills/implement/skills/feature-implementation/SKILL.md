@@ -1,5 +1,6 @@
 ---
 name: feature-implementation
+user-invocable: false
 description: Executes implementation plans with closed-loop verification. Implements components sequentially, verifies each checkpoint, diagnoses failures, and retries with different approaches up to max-iterations. Use after feature-planning approval. Triggers on "implement this feature", "execute implementation plan", "build this feature", or when transitioning from planning to coding.
 ---
 

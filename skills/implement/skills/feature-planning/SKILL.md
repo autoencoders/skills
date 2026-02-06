@@ -1,5 +1,6 @@
 ---
 name: feature-planning
+user-invocable: false
 description: Creates detailed implementation plans for approved features. Use after feature-evaluator approval. Produces testable component breakdowns, verification criteria, and stuck-detection triggers. Triggers on "plan this feature", "create implementation plan", "break down this feature", or when transitioning from feature evaluation to implementation.
 ---
 
