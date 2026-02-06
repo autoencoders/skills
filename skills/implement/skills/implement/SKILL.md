@@ -1,6 +1,6 @@
 ---
 name: implement
-user-invocable: true
+user-invocable: false
 description: Entry point orchestrator for the feature development pipeline. Runs evaluate, define, plan, implement, verify, and validate as a closed loop. Invoke with "/implement [options] idea" to go from half-baked idea to working, validated code. Supports execute mode (full pipeline) and explore mode (preparation with resume). Triggers on "/implement", "implement this", or any message starting with "/implement".
 ---
 
