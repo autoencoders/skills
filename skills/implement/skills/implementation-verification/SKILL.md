@@ -1,5 +1,6 @@
 ---
 name: implementation-verification
+user-invocable: false
 description: Blind inference of what was implemented from code changes only. No access to original requirements. Produces minimal structured output for reconciliation. Triggers on "verify implementation blind", "what was built", "infer feature from changes", or as post-implementation step in feature pipeline.
 ---
 

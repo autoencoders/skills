@@ -1,5 +1,6 @@
 ---
 name: completion-validation
+user-invocable: false
 description: Reconciles intended feature against blind inference. Categorical alignment (MATCH/PARTIAL/MISMATCH) with critical miss override. No testing — comparison and decision only. Triggers on "validate completion", "reconcile intent vs implementation", "is feature complete", or as final step in feature pipeline.
 ---
 
